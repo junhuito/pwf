@@ -10,9 +10,9 @@ export default function Home() {
   const [response, setResponse] = useState('');
   const submit = useCallback(async() => {
     if (value) {
-     axios.post('https://lwmvoodzxa.execute-api.ap-southeast-1.amazonaws.com/sandbox/', {
-        name: value
-      })
+     axios.post('https://lwmvoodzxa.execute-api.ap-southeast-1.amazonaws.com/sandbox', {
+      name: value,
+     })
       .then((res) => {
         setResponse(JSON.stringify(res, null, 2))
       })
@@ -31,7 +31,7 @@ export default function Home() {
       <button onClick={submit}>Submit</button>
       <button onClick={() => setResponse('')}>Clear</button>
 
-      <pre>
+      <pre className="text-wrap">
         {response}
       </pre>
     </main>
